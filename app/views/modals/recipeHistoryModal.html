@@ -1,0 +1,29 @@
+<div id="recipe-history-modal">
+    <div class="modal-header">
+        <h3 class="modal-title">View recipe history</h3>
+    </div>
+    <div class="modal-body">
+        <table ng-table class="table table-striped">
+          <tbody>
+            <tr ng-repeat="recipe in recipeHistory track by $index">
+                <td data-title="'Version #'">{{recipe.version}}</td>
+                <td data-title="'Name'">{{recipe.name}}</td>
+                <td data-title="'Description'">{{recipe.description}}</td>
+                <td data-title="'Date created'">{{recipe.creationDate}}</td>
+                <td data-title="'Date edited'">{{recipe.editDate}}</td>
+                <td data-title="'Actions'">
+                  <i class="fa fa-eye" 
+                     ng-click="viewRecipe(recipe)"
+                     tooltip-placement="top"
+                     tooltip-trigger="mouseenter" 
+                     tooltip="View recipe">
+                  </i>
+                </td>
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+</div>

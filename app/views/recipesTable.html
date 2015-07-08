@@ -1,0 +1,44 @@
+<div id="recipes-table-view">
+  <div class="panel panel-default">
+    <div class="panel-heading"><i class="fa fa-cutlery"></i>&nbsp;List of recipes<i class="fa fa-cutlery"></i></div>
+
+    <table ng-table class="table table-hover" ng-hide="emptyData">
+      <tbody>
+        <tr ng-repeat="recipe in recipes track by $index">
+            <td data-title="'Name'">{{recipe.name}}</td>
+            <td data-title="'Description'">{{recipe.description}}</td>
+            <td data-title="'Date created'">{{recipe.creationDate}}</td>
+            <td data-title="'Actions'">
+              <i class="fa fa-pencil" 
+                 ng-click="editRecipe(recipe)" 
+                 tooltip-placement="top"
+                 tooltip-trigger="mouseenter" 
+                 tooltip="Edit recipe">
+              </i>
+              <i class="fa fa-eye" 
+                 ng-click="viewRecipe(recipe)"
+                 tooltip-placement="top"
+                 tooltip-trigger="mouseenter" 
+                 tooltip="View recipe">
+              </i>
+              <i class="fa fa-history"
+                 ng-click="viewHistory(recipe)"
+                 tooltip-placement="top"
+                 tooltip-trigger="mouseenter" 
+                 tooltip="View previous versions">
+              </i>
+              <i class="fa fa-trash-o" 
+                 ng-click="removeRecipe(recipe)"
+                 tooltip-placement="top"
+                 tooltip-trigger="mouseenter" 
+                 tooltip="Remove recipe">
+              </i>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-danger" role="alert"ng-show="emptyData">No recipes found. Please, add new recipes.</div>
+    <button class="btn btn-info add-button" ng-click="addRecipe()">Add</button>
+  </div>
+</div>
